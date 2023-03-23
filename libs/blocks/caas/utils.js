@@ -315,7 +315,7 @@ export const getConfig = async (state, strs = {}) => {
       additionalRequestParams: arrayToObj(state.additionalRequestParams),
     },
     featuredCards: featuredCards.split(URL_ENCODED_COMMA),
-    hideCtaIds: hideCtaIds ? hideCtaIds.split(URL_ENCODED_COMMA) : [],
+    hideCtaIds: hideCtaIds?.split(URL_ENCODED_COMMA),
     filterPanel: {
       enabled: state.showFilters,
       eventFilter: state.filterEvent,
