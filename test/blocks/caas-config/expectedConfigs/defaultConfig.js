@@ -39,6 +39,9 @@ const defaultConfig = {
   featuredCards: [
     '',
   ],
+  hideCtaIds: [
+    '',
+  ],
   filterPanel: {
     enabled: false,
     eventFilter: '',

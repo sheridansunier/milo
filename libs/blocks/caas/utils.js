@@ -252,6 +252,7 @@ export const getConfig = async (state, strs = {}) => {
   const country = state.country ? state.country.split('/').pop() : 'us';
   const featuredCards = state.featuredCards && state.featuredCards.reduce(getContentIdStr, '');
   const excludedCards = state.excludedCards && state.excludedCards.reduce(getContentIdStr, '');
+  const hideCtaIds = state.hideCtaIds && state.hideCtaIds.reduce(getContentIdStr, '');
   const targetActivity = state.targetEnabled
   && state.targetActivity ? `/${encodeURIComponent(state.targetActivity)}.json` : '';
   const flatFile = targetActivity ? '&flatFile=false' : '';
@@ -314,6 +315,7 @@ export const getConfig = async (state, strs = {}) => {
       additionalRequestParams: arrayToObj(state.additionalRequestParams),
     },
     featuredCards: featuredCards.split(URL_ENCODED_COMMA),
+    hideCtaIds: hideCtaIds ? hideCtaIds.split(URL_ENCODED_COMMA) : [],
     filterPanel: {
       enabled: state.showFilters,
       eventFilter: state.filterEvent,
@@ -481,6 +483,7 @@ export const defaultState = {
   filters: [],
   filtersShowEmpty: false,
   gutter: '4x',
+  hideCtaIds: [],
   includeTags: [],
   language: 'caas:language/en',
   layoutType: '4up',
