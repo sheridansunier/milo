@@ -407,8 +407,7 @@ const alphaSort = (a, b) => {
   return 0;
 };
 
-const getLocalTitle = (tag, country, lang) => {
-  tag[`title.${lang}_${country}`]
+const getLocalTitle = (tag, country, lang) => tag[`title.${lang}_${country}`]
   || tag[`title.${lang}`]
   || tag.title;
 
