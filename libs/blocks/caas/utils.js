@@ -408,11 +408,9 @@ const alphaSort = (a, b) => {
 };
 
 const getLocalTitle = (tag, country, lang) => {
-  const searchKey = `${lang}_${country}`.toLowerCase();
-  return tag[`title.${searchKey}`]
+  tag[`title.${lang}_${country}`]
   || tag[`title.${lang}`]
   || tag.title;
-};
 
 const getFilterObj = (
   { excludeTags, filterTag, icon, openedOnLoad },
