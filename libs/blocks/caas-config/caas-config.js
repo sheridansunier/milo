@@ -604,10 +604,15 @@ const SortPanel = () => {
     ${state.sortEnableRandomSampling && RandomSampling}
   `;
 
+  const EnableRecencyThreshold = html`
+    <${Input} label="Enable Recency Threshold" prop="recencyThreshold" type="checkbox" />
+  `;
+
   return html`
     <${Select} label="Default Sort Order" prop="sortDefault" options=${defaultOptions.sort} />
     <${Input} label="Enable Sort Popup" prop="sortEnablePopup" type="checkbox" />
     ${state.sortEnablePopup && SortOptions}
+    ${state.sortDefault === 'sortLocalFirst' && EnableRecencyThreshold}
   `;
 };
 
