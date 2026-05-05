@@ -605,14 +605,19 @@ const SortPanel = () => {
   `;
 
   const EnableRecencyThreshold = html`
-    <${Input} label="Enable Recency Threshold" prop="recencyThreshold" type="checkbox" />
+    <${Input} label="Enable Recency Threshold" prop="enableRecencyThreshold" type="checkbox" />
+  `;
+
+  const RecencyThreshold = html`
+    <${Input} label="Months of Relevance" prop="recencyThreshold" type="number" />
   `;
 
   return html`
     <${Select} label="Default Sort Order" prop="sortDefault" options=${defaultOptions.sort} />
+    ${state.sortDefault === 'localFirst' && EnableRecencyThreshold}
+    ${(state.sortDefault === 'localFirst' && state.enableRecencyThreshold) && RecencyThreshold}
     <${Input} label="Enable Sort Popup" prop="sortEnablePopup" type="checkbox" />
     ${state.sortEnablePopup && SortOptions}
-    ${state.sortDefault === 'sortLocalFirst' && EnableRecencyThreshold}
   `;
 };
 

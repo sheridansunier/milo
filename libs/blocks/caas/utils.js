@@ -382,10 +382,14 @@ const getSortOptions = (state, strs) => {
   return Object.entries(sortVals).reduce((options, [key, defaultValue]) => {
     const fullKey = `sort${key.charAt(0).toUpperCase() + key.slice(1)}`;
     if (state[fullKey]) {
-      options.push({
+      const option = {
         label: strs[fullKey] || defaultValue,
         sort: key,
-      });
+      };
+      if (key === 'localFirst' && state.enableRecencyThreshold && state.recencyThreshold) {
+        option.recencyThreshold = state.recencyThreshold;
+      }
+      options.push(option);
     }
     return options;
   }, []);
