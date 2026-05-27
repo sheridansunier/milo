@@ -163,6 +163,13 @@ body.advanced dd.content .preset-options .field {
     display: block;
 }
 
+body.preset dd.content .preset-options .field.checkbox,
+body.advanced dd.content .preset-options .field.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 body.preset  {
   position: relative;
 }
@@ -180,7 +187,7 @@ body.advanced h4.basic-settings {
 }
 
 body.preset .preset-options {
-  height: 196px;
+  height: 236px;
 }
 
 body.preset dd.content .preset-options .field label {
@@ -192,11 +199,11 @@ body.preset .preset-options .help {
 }
 
 body.advanced .preset-options {
-  height: 368px;
+  height: 408px;
 }
 
 body.advanced .advanced-options {
-  height: 440px;
+  height: 370px;
 }
 
 body.advanced .preset-options {
